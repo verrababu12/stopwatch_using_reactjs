@@ -1,0 +1,120 @@
+/* Stopwatch Container */
+
+.bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  min-height: 100vh;
+}
+
+.stopwatch-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f8;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  width: 40%;
+  border-radius: 8px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* General Buttons */
+.stopwatch-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.stopwatch-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+h1 {
+  font-family: "Roboto";
+}
+
+/* Specific Button Colors */
+.stopwatch-buttons button:nth-child(1) {
+  background-color: #28a745; /* Green - Start/Pause/Resume */
+}
+.stopwatch-buttons button:nth-child(1):hover {
+  background-color: #218838;
+}
+
+.stopwatch-buttons button:nth-child(2) {
+  background-color: #ffc107; /* Yellow - Lap */
+  color: black;
+}
+.stopwatch-buttons button:nth-child(2):hover {
+  background-color: #e0a800;
+}
+
+.stopwatch-buttons button:nth-child(3) {
+  background-color: #dc3545; /* Red - Reset */
+}
+.stopwatch-buttons button:nth-child(3):hover {
+  background-color: #c82333;
+}
+
+/* Disabled state */
+.stopwatch-buttons button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Time & Lap Styles */
+.stopwatch-time {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+.laps {
+  text-align: left;
+  padding: 0 10px;
+}
+.laps h2 {
+  margin-bottom: 10px;
+}
+.laps ul {
+  list-style: none;
+  padding: 0;
+}
+.laps li {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .stopwatch-container {
+    width: 80%;
+    padding: 30px 15px;
+  }
+
+  .stopwatch-time {
+    font-size: 36px;
+  }
+
+  .stopwatch-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stopwatch-buttons button {
+    width: 100%;
+    font-size: 18px;
+  }
+}
