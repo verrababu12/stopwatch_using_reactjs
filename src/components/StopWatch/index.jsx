@@ -49,9 +49,14 @@ const Stopwatch = () => {
             <button onClick={handleStartPause}>
               {isRunning ? "Pause" : time === 0 ? "Start" : "Resume"}
             </button>
-            <button onClick={handleLap} disabled={!isRunning}>
-              Lap
-            </button>
+
+            {/* Lap button when stopwatch is running or paused after start */}
+            {isRunning || time > 0 ? (
+              <button onClick={handleLap} disabled={!isRunning}>
+                Lap
+              </button>
+            ) : null}
+
             <button onClick={handleReset}>Reset</button>
           </div>
 
@@ -75,7 +80,7 @@ const Stopwatch = () => {
 
 export default Stopwatch;
 
-//with out laps below code
+//without laps
 
 // import { useState, useEffect, useRef } from "react";
 // import "./index.css";
@@ -97,14 +102,28 @@ export default Stopwatch;
 //     return () => clearInterval(intervalRef.current);
 //   }, [isRunning]);
 
-//   const formatTime = (seconds) => {
-//     const hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
-//     const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
-//     const secs = String(seconds % 60).padStart(2, "0");
-//     return `${hrs}:${mins}:${secs}`;
+//   const formatTime = (totalSeconds) => {
+//     // Calculate hours
+//     let hours = Math.floor(totalSeconds / 3600);
+
+//     // Calculate remaining minutes
+//     let minutes = Math.floor((totalSeconds % 3600) / 60);
+
+//     // Calculate remaining seconds
+//     let seconds = totalSeconds % 60;
+
+//     // Convert to string and add 0 in front if less than 10
+//     let hrsStr = hours < 10 ? "0" + hours : "" + hours;
+//     let minsStr = minutes < 10 ? "0" + minutes : "" + minutes;
+//     let secsStr = seconds < 10 ? "0" + seconds : "" + seconds;
+
+//     // Combine and return in HH:MM:SS format
+//     return hrsStr + ":" + minsStr + ":" + secsStr;
 //   };
 
-//   const handleStartPause = () => setIsRunning((prev) => !prev);
+//   const handleStartPause = () => {
+//     setIsRunning((prev) => !prev);
+//   };
 
 //   const handleReset = () => {
 //     setIsRunning(false);

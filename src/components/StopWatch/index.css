@@ -81,10 +81,15 @@ h1 {
   font-weight: bold;
   color: #333;
 }
+
 .laps {
-  text-align: left;
+  width: 100%;
+  max-width: 400px;
+  text-align: left !important;
+  align-self: flex-start;
   padding: 0 10px;
 }
+
 .laps h2 {
   margin-bottom: 10px;
 }
